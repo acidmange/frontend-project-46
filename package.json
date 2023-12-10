@@ -7,11 +7,19 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Alexander Atamanyuk",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^8.53.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.29.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acidmange/frontend-project-46.git"
+  },
+  "bugs": {
+    "url": "https://github.com/acidmange/frontend-project-46/issues"
+  },
+  "homepage": "https://github.com/acidmange/frontend-project-46#readme"
 }
