@@ -18,7 +18,7 @@ const genDiffFunc = () => {
       if (!fileA || !fileB) {
         console.log('wrong input format');
       } else {
-        console.log(fileA, fileB);
+        console.log(fileA, '\n', fileB);
       }
     });
 
