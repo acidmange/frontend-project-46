@@ -6,7 +6,7 @@
     "node": ">=20.0.0"
   },
   "type": "module",
-  "main": "index.js",
+  "main": "./bin/nodejs-package.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
