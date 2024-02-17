@@ -1,5 +1,6 @@
 import { Command } from 'commander';
 import getFileInfo from './getFileInfo.js';
+import getFileDiff from './getFileDiff.js';
 
 const genDiffFunc = () => {
   const program = new Command();
@@ -18,7 +19,8 @@ const genDiffFunc = () => {
       if (!fileA || !fileB) {
         console.log('wrong input format');
       } else {
-        console.log(fileA, '\n', fileB);
+        const result = getFileDiff(fileA, fileB);
+        console.log(result);
       }
     });
 

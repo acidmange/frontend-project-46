@@ -24,6 +24,7 @@
   "homepage": "https://github.com/acidmange/frontend-project-46#readme",
   "license": "ISC",
   "dependencies": {
-    "commander": "^12.0.0"
+    "commander": "^12.0.0",
+    "lodash": "^4.17.21"
   }
 }
