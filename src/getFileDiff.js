@@ -22,7 +22,7 @@ const fileDiff = (firstObj, secondObj) => {
     }
   });
 
-  const resultPure = result.map((item) => item.join(' '));
+  const resultPure = result.map((item) => `  ${item.join(' ')}`);
   const resultSrt = `{\n${resultPure.join('\n')}\n}`;
   return resultSrt;
 };
