@@ -7,7 +7,7 @@ const fileParser = (filePath) => {
   const absPath = path.resolve(currentPath, filePath);
 
   try {
-    fs.accessSync(absPath, fs.constants.R_OK | fs.constants.W_OK);
+    fs.accessSync(absPath, fs.constants.R_OK || fs.constants.W_OK);
     const name = path.basename(absPath);
     const fileArr = name.split('.');
     if (fileArr.length < 2) {
@@ -20,12 +20,11 @@ const fileParser = (filePath) => {
         return JSON.parse(data);
       }
       default: {
-        return;
+        return undefined;
       }
     }
-
   } catch (err) {
-    return;
+    return undefined;
   }
 };
 
