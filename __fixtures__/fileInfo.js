@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import fileParser from '../src/getFileInfo.js';
 import * as process from 'node:process';
+import fileParser from '../src/getFileInfo.js';
 
 const args = process.argv.slice(2);
 
@@ -12,4 +12,3 @@ if (args.length > 0) {
 } else {
   console.log('no args');
 }
-
