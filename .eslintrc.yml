@@ -12,6 +12,6 @@ rules:
   consistent-return: 0
   no-underscore-dangle: [2, { "allow": ["__filename", "__dirname"] }]
 plugins:
-  jest
+  ["jest"]
 
 
