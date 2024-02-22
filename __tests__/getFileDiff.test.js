@@ -1,26 +1,9 @@
 import fileDiff from '../src/getFileDiff.js';
-
-const file1 = {
-  host: 'hexlet.io',
-  key: true,
-  map: 'flat',
-  signature: false,
-  name: 'valid',
-  timeout: 50,
-  proxy: '123.234.53.22',
-  follow: false,
-};
-
-const file2 = {
-  timeout: 20,
-  verbose: true,
-  host: 'hexlet.io',
-  key: false,
-  signature: true,
-  name: 'valid',
-};
-
-const file3 = {};
+import {
+  obj1,
+  obj2,
+  obj3,
+} from '../__fixtures__/objects.js';
 
 const result1 = `{
   - follow: false
@@ -64,11 +47,11 @@ const result4 = `{
 }`;
 
 test('filesDiff normal use', () => {
-  expect(fileDiff(file1, file2)).toBe(result1);
+  expect(fileDiff(obj1, obj2)).toBe(result1);
 });
 
 test('filesDiff empty use', () => {
-  expect(fileDiff(file1, file3)).toBe(result2);
-  expect(fileDiff(file3, file1)).toBe(result3);
-  expect(fileDiff(file3, file3)).toBe(result4);
+  expect(fileDiff(obj1, obj3)).toBe(result2);
+  expect(fileDiff(obj3, obj1)).toBe(result3);
+  expect(fileDiff(obj3, obj3)).toBe(result4);
 });

@@ -1,6 +1,12 @@
 import path from 'node:path';
 import _ from 'lodash';
 import fileParser from '../src/getFileInfo.js';
+import {
+  obj1,
+  obj2,
+  obj3,
+  obj4,
+} from '../__fixtures__/objects.js';
 
 const currentPath = process.cwd();
 const path1 = './__fixtures__/file1.json';
@@ -16,41 +22,17 @@ const absPath4 = path.resolve(currentPath, path4);
 const absPath5 = path.resolve(currentPath, path5);
 const absPath6 = path.resolve(currentPath);
 
-const result1 = {
-  host: 'hexlet.io',
-  key: true,
-  map: 'flat',
-  signature: false,
-  name: 'valid',
-  timeout: 50,
-  proxy: '123.234.53.22',
-  follow: false,
-};
-
-const result2 = {
-  timeout: 20,
-  verbose: true,
-  host: 'hexlet.io',
-  key: false,
-  signature: true,
-  name: 'valid',
-};
-
-const result3 = {};
-
-const result4 = undefined;
-
 test('fileParser normal use', () => {
-  expect(_.isEqual(fileParser(absPath1), result1)).toBeTruthy();
-  expect(_.isEqual(fileParser(absPath2), result2)).toBeTruthy();
+  expect(_.isEqual(fileParser(absPath1), obj1)).toBeTruthy();
+  expect(_.isEqual(fileParser(absPath2), obj2)).toBeTruthy();
 });
 
 test('filesParser empty use', () => {
-  expect(_.isEqual(fileParser(absPath3), result3)).toBeTruthy();
+  expect(_.isEqual(fileParser(absPath3), obj3)).toBeTruthy();
 });
 
 test('filesParser wrong use', () => {
-  expect(_.isEqual(fileParser(absPath4), result4)).toBeTruthy();
-  expect(_.isEqual(fileParser(absPath5), result4)).toBeTruthy();
-  expect(_.isEqual(fileParser(absPath6), result4)).toBeTruthy();
+  expect(_.isEqual(fileParser(absPath4), obj4)).toBeTruthy();
+  expect(_.isEqual(fileParser(absPath5), obj4)).toBeTruthy();
+  expect(_.isEqual(fileParser(absPath6), obj4)).toBeTruthy();
 });
