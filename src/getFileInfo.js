@@ -1,6 +1,7 @@
 import * as fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
+import yaml from 'js-yaml';
 
 const fileParser = (filePath) => {
   const currentPath = process.cwd();
@@ -22,6 +23,10 @@ const fileParser = (filePath) => {
   switch (fileExt) {
     case 'json': {
       return JSON.parse(data);
+    }
+    case 'yml':
+    case 'yaml': {
+      return yaml.load(data);
     }
     default: {
       return undefined;
