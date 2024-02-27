@@ -1,7 +1,7 @@
 import * as fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
-import yaml from 'js-yaml';
+import dataParser from './parsers.js';
 
 const fileParser = (filePath) => {
   const currentPath = process.cwd();
@@ -14,24 +14,10 @@ const fileParser = (filePath) => {
   }
 
   const name = path.basename(absPath);
-  const fileArr = name.split('.');
-  if (fileArr.length < 2) {
-    return;
-  }
+  const fileExt = path.extname(name);
   const data = fs.readFileSync(absPath, { encoding: 'utf-8' });
-  const fileExt = fileArr[1];
-  switch (fileExt) {
-    case 'json': {
-      return JSON.parse(data);
-    }
-    case 'yml':
-    case 'yaml': {
-      return yaml.load(data);
-    }
-    default: {
-      return undefined;
-    }
-  }
+
+  return dataParser(data, fileExt);
 };
 
 export default fileParser;
