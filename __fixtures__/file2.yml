@@ -1,0 +1,11 @@
+env:
+  browser: false
+  jest/globals: false
+extends: babel-eslint
+parserOptions:
+  ecmaVersion: 2018
+  sourceType: script
+rules: 
+  no-console: 1
+  no-underscore-dangle: [ 0 ]
+  
