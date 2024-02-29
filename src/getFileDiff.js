@@ -1,28 +1,12 @@
-import _ from 'lodash';
+import objDiff from './objDiff.js';
+import objParser from './objParser.js';
+import objStringify from './objStringify.js';
 
 const fileDiff = (firstObj, secondObj) => {
-  const result = [];
-  const allKeys = _.union(Object.keys(firstObj), Object.keys(secondObj));
-  const sortedKeys = _.sortBy(allKeys);
-  sortedKeys.forEach((key) => {
-    const includesOld = Object.keys(firstObj).includes(key);
-    const includesNew = Object.keys(secondObj).includes(key);
+  const resObj = objDiff(firstObj, secondObj);
+  const parsedObj = objParser(resObj);
 
-    if (includesNew && !includesOld) {
-      result.push(['+', `${key}:`, secondObj[key]]);
-    } else if (!includesNew && includesOld) {
-      result.push(['-', `${key}:`, firstObj[key]]);
-    } else if (firstObj[key] === secondObj[key]) {
-      result.push([' ', `${key}:`, firstObj[key]]);
-    } else {
-      result.push(['-', `${key}:`, firstObj[key]]);
-      result.push(['+', `${key}:`, secondObj[key]]);
-    }
-  });
-
-  const resultPure = result.map((item) => `  ${item.join(' ')}`);
-  const resultSrt = `{\n${resultPure.join('\n')}\n}`;
-  return resultSrt;
+  return objStringify(parsedObj);
 };
 
 export default fileDiff;
