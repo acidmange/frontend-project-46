@@ -194,13 +194,13 @@ const result6 = `{
 }`;
 
 test('filesDiff normal use', () => {
-  expect(fileDiff(obj1, obj2)).toBe(result1);
-  expect(fileDiff(obj2, obj1)).toBe(result2);
-  expect(fileDiff(obj5, obj6)).toBe(result3);
+  expect(fileDiff(obj1, obj2, 'stylish')).toBe(result1);
+  expect(fileDiff(obj2, obj1, 'stylish')).toBe(result2);
+  expect(fileDiff(obj5, obj6, 'stylish')).toBe(result3);
 });
 
 test('filesDiff empty use', () => {
-  expect(fileDiff(obj3, obj3)).toBe(result4);
-  expect(fileDiff(obj1, obj3)).toBe(result5);
-  expect(fileDiff(obj3, obj1)).toBe(result6);
+  expect(fileDiff(obj3, obj3, 'stylish')).toBe(result4);
+  expect(fileDiff(obj1, obj3, 'stylish')).toBe(result5);
+  expect(fileDiff(obj3, obj1, 'stylish')).toBe(result6);
 });
