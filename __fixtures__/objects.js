@@ -61,9 +61,59 @@ const obj3 = {};
 
 const obj4 = undefined;
 
+const obj5 = {
+  env: {
+    browser: true,
+    es2021: true,
+    'jest/globals': true,
+  },
+  extends: 'airbnb-base',
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+  },
+  rules: {
+    'no-console': 0,
+    'import/extensions': 0,
+    'consistent-return': 0,
+    'no-underscore-dangle': [
+      2,
+      {
+        allow: [
+          '__filename',
+          '__dirname',
+        ],
+      },
+    ],
+  },
+  plugins: [
+    'jest',
+  ],
+};
+
+const obj6 = {
+  env: {
+    browser: false,
+    'jest/globals': false,
+  },
+  extends: 'babel-eslint',
+  parserOptions: {
+    ecmaVersion: 2018,
+    sourceType: 'script',
+  },
+  rules: {
+    'no-console': 1,
+    'no-underscore-dangle': [
+      0,
+    ],
+  },
+};
+
 export {
   obj1,
   obj2,
   obj3,
   obj4,
+  obj5,
+  obj6,
 };
