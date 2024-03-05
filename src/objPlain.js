@@ -31,8 +31,6 @@ const objPlain = (obj, path = '') => {
 
     if (isObj) {
       const isDiff = _.has(value, 'oldValue');
-      let newValue;
-      let property;
 
       if (!isDiff) {
         const newPath = propertyCheck(path, key);
@@ -40,18 +38,18 @@ const objPlain = (obj, path = '') => {
       }
 
       if (value.oldValue === undefined) {
-        newValue = complexCheck(value.newValue);
-        property = propertyCheck(path, key);
+        const newValue = complexCheck(value.newValue);
+        const property = propertyCheck(path, key);
         return [...acc, `Property '${property}' was added with value: ${stringCheck(newValue)}`];
       }
 
       if (value.newValue === undefined) {
-        property = (path === '') ? key : `${path}.${key}`;
+        const property = (path === '') ? key : `${path}.${key}`;
         return [...acc, `Property '${property}' was removed`];
       }
 
       const oldValue = complexCheck(value.oldValue);
-      newValue = complexCheck(value.newValue);
+      const newValue = complexCheck(value.newValue);
       return [...acc, `Property '${path}.${key}' was updated. From ${stringCheck(oldValue)} to ${stringCheck(newValue)}`];
     }
 

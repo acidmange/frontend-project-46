@@ -5,21 +5,23 @@ import objStringify from './objStringify.js';
 
 const fileDiff = (firstObj, secondObj, formatter) => {
   const resObj = objDiff(firstObj, secondObj);
-  let parsedObj;
+
   if (formatter === 'stylish') {
-    parsedObj = objParser(resObj);
-    return objStringify(parsedObj);
+    const parsedObj = objParser(resObj);
+    return `${objStringify(parsedObj)}\n`;
   }
 
   if (formatter === 'plain') {
-    parsedObj = objPlain(resObj);
-    return `\n${parsedObj.join('\n')}`;
+    const parsedObj = objPlain(resObj);
+    return `${parsedObj.join('\n')}\n`;
   }
 
   if (formatter === 'json') {
-    parsedObj = objParser(resObj);
+    const parsedObj = objParser(resObj);
     return JSON.stringify(parsedObj);
   }
+
+  return undefined;
 };
 
 export default fileDiff;
