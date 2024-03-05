@@ -1,7 +1,7 @@
 import process from 'node:process';
 import path from 'node:path';
 import * as fs from 'node:fs';
-import fileDiff from '../src/getFileDiff.js';
+import fileDiff from '../src/index.js';
 
 const getData = (fPath) => {
   const currentPath = process.cwd();
@@ -21,6 +21,6 @@ const plainRes1 = getData(plainPath1);
 const styleRes1 = getData(stylePath1);
 
 test('filesDiff normal use', () => {
-  expect(fileDiff(objPath1, objPath2, 'plain')).toBe(plainRes1);
-  expect(fileDiff(objPath1, objPath2, 'stylish')).toBe(styleRes1);
+  expect(fileDiff(objPath1, objPath2, 'plain')).toEqual(plainRes1);
+  expect(fileDiff(objPath1, objPath2, 'stylish')).toEqual(styleRes1);
 });
