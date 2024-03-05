@@ -1,5 +1,6 @@
 install:
 	npm i
+	npm link
 
 lint:
 	@npx eslint .

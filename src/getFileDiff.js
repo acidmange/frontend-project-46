@@ -15,6 +15,11 @@ const fileDiff = (firstObj, secondObj, formatter) => {
     parsedObj = objPlain(resObj);
     return `\n${parsedObj.join('\n')}`;
   }
+
+  if (formatter === 'json') {
+    parsedObj = objParser(resObj);
+    return JSON.stringify(parsedObj);
+  }
 };
 
 export default fileDiff;
