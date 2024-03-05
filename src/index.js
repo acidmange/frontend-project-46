@@ -4,7 +4,7 @@ import objParser from './objParser.js';
 import objPlain from './objPlain.js';
 import objStringify from './objStringify.js';
 
-const fileDiff = (pathA, pathB, formatter) => {
+const fileDiff = (pathA, pathB, formatter = 'stylish') => {
   const firstObj = getFileInfo(pathA);
   const secondObj = getFileInfo(pathB);
   const resObj = objDiff(firstObj, secondObj);
