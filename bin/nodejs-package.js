@@ -2,7 +2,6 @@
 
 import { Command } from 'commander';
 import getFileDiff from '../src/getFileDiff.js';
-import getFileInfo from '../src/getFileInfo.js';
 
 const program = new Command();
 
@@ -15,14 +14,8 @@ program
   .argument('<filepath1>')
   .argument('<filepath2>')
   .action((pathA, pathB) => {
-    const fileA = getFileInfo(pathA);
-    const fileB = getFileInfo(pathB);
-    if (!fileA || !fileB) {
-      console.log('wrong input format');
-    } else {
-      const formatter = program.opts().format ?? 'stylish';
-      const result = getFileDiff(fileA, fileB, formatter);
-      console.log(result);
-    }
+    const formatter = program.opts().format ?? 'stylish';
+    const result = getFileDiff(pathA, pathB, formatter);
+    console.log(result);
   })
   .parse(process.argv);

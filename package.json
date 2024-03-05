@@ -6,7 +6,7 @@
     "node": ">=20.0.0"
   },
   "type": "module",
-  "main": "./bin/nodejs-package.js",
+  "main": "./src/getFileDiff.js",
   "scripts": {
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest",
     "test-watch": "jest --watchAll"

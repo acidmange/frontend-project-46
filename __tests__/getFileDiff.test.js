@@ -17,13 +17,10 @@ const objPath2 = './__fixtures__/file2.json';
 const plainPath1 = './__fixtures__/result_plain.txt';
 const stylePath1 = './__fixtures__/result_stylish.txt';
 
-const obj1 = JSON.parse(getData(objPath1));
-const obj2 = JSON.parse(getData(objPath2));
-
 const plainRes1 = getData(plainPath1);
 const styleRes1 = getData(stylePath1);
 
 test('filesDiff normal use', () => {
-  expect(fileDiff(obj1, obj2, 'plain')).toBe(plainRes1);
-  expect(fileDiff(obj1, obj2, 'stylish')).toBe(styleRes1);
+  expect(fileDiff(objPath1, objPath2, 'plain')).toBe(plainRes1);
+  expect(fileDiff(objPath1, objPath2, 'stylish')).toBe(styleRes1);
 });
