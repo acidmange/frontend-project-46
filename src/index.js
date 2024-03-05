@@ -11,12 +11,12 @@ const fileDiff = (pathA, pathB, formatter = 'stylish') => {
 
   if (formatter === 'stylish') {
     const parsedObj = objParser(resObj);
-    return `${objStringify(parsedObj)}\n`;
+    return `${objStringify(parsedObj)}`;
   }
 
   if (formatter === 'plain') {
     const parsedObj = objPlain(resObj);
-    return `${parsedObj.join('\n')}\n`;
+    return `${parsedObj.join('\n')}`;
   }
 
   if (formatter === 'json') {
