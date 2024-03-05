@@ -8,7 +8,7 @@
   "type": "module",
   "main": "./bin/nodejs-package.js",
   "scripts": {
-    "test": "jest",
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest",
     "test-watch": "jest --watchAll"
   },
   "keywords": [
