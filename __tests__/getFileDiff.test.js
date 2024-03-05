@@ -232,6 +232,8 @@ Property 'rules.import/extensions' was removed
 Property 'rules.no-console' was updated. From 0 to 1
 Property 'rules.no-underscore-dangle' was updated. From [complex value] to [complex value]`;
 
+const result10 = `{"  common":{"+ follow":false,"  setting1":"Value 1","- setting2":200,"- setting3":true,"+ setting3":null,"+ setting4":"blah blah","+ setting5":{"key5":"value5"},"  setting6":{"  doge":{"- wow":"","+ wow":"so much"},"  key":"value","+ ops":"vops"}},"  group1":{"- baz":"bas","+ baz":"bars","  foo":"bar","- nest":{"key":"value"},"+ nest":"str"},"- group2":{"abc":12345,"deep":{"id":45}},"+ group3":{"deep":{"id":{"number":45}},"fee":100500}}`;
+
 test('filesDiff normal use', () => {
   expect(fileDiff(obj1, obj2, 'stylish')).toBe(result1);
   expect(fileDiff(obj2, obj1, 'stylish')).toBe(result2);
@@ -242,6 +244,10 @@ test('filesDiff plain normal use', () => {
   expect(fileDiff(obj1, obj2, 'plain')).toBe(result7);
   expect(fileDiff(obj2, obj1, 'plain')).toBe(result8);
   expect(fileDiff(obj5, obj6, 'plain')).toBe(result9);
+});
+
+test('filesDiff json normal use', () => {
+  expect(fileDiff(obj1, obj2, 'json')).toBe(result10);
 });
 
 test('filesDiff empty use', () => {
