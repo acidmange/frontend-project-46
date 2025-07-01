@@ -4,9 +4,6 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/39c45a849d92499eb044/maintainability)](https://codeclimate.com/github/acidmange/frontend-project-46/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/39c45a849d92499eb044/test_coverage)](https://codeclimate.com/github/acidmange/frontend-project-46/test_coverage)
 
-# Gendiff Utility - File Comparison Tool
-
-
 # Gendiff - File Comparison Utility
 
 Gendiff is a command-line utility that compares two configuration files and displays the differences in a human-readable format. It supports JSON and YAML formats and provides multiple output formatting options.
